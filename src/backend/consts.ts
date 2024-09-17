@@ -8,4 +8,9 @@ export const DEFAULT_SETTING: Settings = {
   amount: 2,
   color: '#000000',
   iconColor: '#000000',
+  enabled: true,
+  eligibleItems: {
+    shippable: true,
+    items: [],
+  }
 };

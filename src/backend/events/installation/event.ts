@@ -12,6 +12,8 @@ appInstances.onAppInstanceInstalled(() => {
       { key: 'amount', type: collections.Type.NUMBER },
       { key: 'color', type: collections.Type.TEXT },
       { key: 'iconColor', type: collections.Type.TEXT },
+      { key: 'enabled', type: collections.Type.BOOLEAN },
+      { key: 'eligibleItems', type: collections.Type.OBJECT },
     ],
     permissions: {
       // Make sure to change the permissions according to the actual usage of your collection
@@ -24,7 +26,7 @@ appInstances.onAppInstanceInstalled(() => {
     plugins: [{
       type: collections.PluginType.SINGLE_ITEM,
       singleItemOptions: {
-        singleItemId: "SETTINGS"
+        singleItemId: "SINGLE_ITEM_ID"
       },
     }],
   });

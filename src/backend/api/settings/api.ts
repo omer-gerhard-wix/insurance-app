@@ -7,12 +7,14 @@ export async function GET(req: Request) {
     dataCollectionId: SETTINGS_COLLECTION_ID,
   });
 
-  const settingsData = settingsCollection.items[0]?.data as Settings;
+  const settingsData: Settings = settingsCollection.items[0]?.data as Settings;
   const settings: Settings = {
     title: settingsData?.title || DEFAULT_SETTING.title,
     amount: settingsData?.amount || DEFAULT_SETTING.amount,
     color: settingsData?.color || DEFAULT_SETTING.color,
     iconColor: settingsData?.iconColor || DEFAULT_SETTING.iconColor,
+    enabled: settingsData?.enabled || DEFAULT_SETTING.enabled,
+    eligibleItems: settingsData?.eligibleItems || DEFAULT_SETTING.eligibleItems,
   };
 
   return new Response(JSON.stringify(settings));
