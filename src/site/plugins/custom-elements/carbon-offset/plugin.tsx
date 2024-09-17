@@ -39,7 +39,7 @@ const CustomElement: FC<Props> = (props) => {
 
       setSettings(settingsData);
       setPurchaseFlowId(purchaseFlowId ?? '');
-      setChecked(checkoutData.shouldAdd ?? false);
+      setChecked(checkoutData.shouldInsure ?? false);
     };
 
     if (checkoutId) {

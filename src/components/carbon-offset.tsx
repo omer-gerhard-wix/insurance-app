@@ -45,8 +45,7 @@ export const CarbonOffset: FC<Props> = ({
                 method: 'POST',
                 body: JSON.stringify({
                   purchaseFlowId,
-                  checkoutId,
-                  shouldAdd: e.target.checked,
+                  shouldInsure: e.target.checked,
                 }),
               });
 

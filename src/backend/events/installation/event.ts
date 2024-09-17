@@ -6,7 +6,7 @@ import { CHECKOUT_COLLECTION_ID, SETTINGS_COLLECTION_ID } from '../../consts';
 appInstances.onAppInstanceInstalled(() => {
   auth.elevate(collections.createDataCollection)({
     _id: SETTINGS_COLLECTION_ID,
-    displayName: "Carbon Offset Settings",
+    displayName: "Insurance App Settings",
     fields: [
       { key: 'title', type: collections.Type.TEXT },
       { key: 'amount', type: collections.Type.NUMBER },
@@ -31,12 +31,9 @@ appInstances.onAppInstanceInstalled(() => {
 
   auth.elevate(collections.createDataCollection)({
     _id: CHECKOUT_COLLECTION_ID,
-    displayName: "Carbon Offset Checkout",
+    displayName: "Checkout Items Insurance",
     fields: [
-      // In this case, checkoutId is stored as an "added" field that is not neccessarry
-      // the actual _id for each item of this collection will be purchaseFlowId for easy fetching
-      { key: 'checkoutId', type: collections.Type.TEXT },
-      { key: 'shouldAdd', type: collections.Type.BOOLEAN },
+      { key: 'shouldInsure', type: collections.Type.BOOLEAN },
     ],
     permissions: {
       // Make sure to change the permissions according to the actual usage of your collection

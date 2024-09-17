@@ -30,7 +30,7 @@ additionalFees.provideHandlers({
       getSettingsDataFromCollection(),
     ]);
 
-    if (checkoutData?.shouldAdd) {
+    if (checkoutData?.shouldInsure) {
       const settingsData = settingsCollection.items[0]?.data as Settings;
 
       return {

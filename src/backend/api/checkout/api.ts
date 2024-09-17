@@ -12,7 +12,7 @@ export async function GET(req: Request) {
 };
 
 export async function POST(req: Request) {
-  const { purchaseFlowId, checkoutId, shouldAdd } = await req.json();
+  const { purchaseFlowId, shouldInsure } = await req.json();
 
   try {
     await upsertDataToCollection({
@@ -20,8 +20,7 @@ export async function POST(req: Request) {
       item: {
         _id: purchaseFlowId,
         data: {
-          checkoutId,
-          shouldAdd,
+          shouldInsure,
         },
       },
     });
