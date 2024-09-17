@@ -1,5 +1,5 @@
 import React, { type FC } from 'react';
-import { CarbonOffset } from './carbon-offset';
+import { InsuranceSlot } from './insurance-slot';
 import { Box } from '@wix/design-system';
 import checkoutScreenshot from '../assets/checkout.png';
 import type { Settings } from '../types';
@@ -32,7 +32,7 @@ export const PluginPreview: FC<Settings> = (settings) => {
           scale={'1.2'}
           backgroundColor='rgba(240, 240, 240, 0.9)'
         >
-          <CarbonOffset
+          <InsuranceSlot
             settings={settings}
           />
         </Box>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import reactToWebComponent from 'react-to-webcomponent';
 import { httpClient } from '@wix/essentials';
 import { checkout } from '@wix/ecom';
-import { CarbonOffset } from '../../../../components/carbon-offset';
+import { InsuranceSlot } from '../../../../components/insurance-slot';
 import { PluginSkeleton } from '../../../../components/plugin-skeleton/plugin-skeleton';
 import type { Settings } from '../../../../types';
 
@@ -52,7 +52,7 @@ const CustomElement: FC<Props> = (props) => {
       {!settings ? (
         <PluginSkeleton />
       ) : (
-        <CarbonOffset
+        <InsuranceSlot
           settings={settings}
           purchaseFlowId={purchaseFlowId}
           checkoutId={checkoutId}

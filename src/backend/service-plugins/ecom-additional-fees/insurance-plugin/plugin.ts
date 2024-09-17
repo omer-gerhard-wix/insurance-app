@@ -12,9 +12,8 @@ const getCheckoutDataFromCollection = async (purchaseFlowId: string) => {
     );
 
     return data;
-  } catch (error) {
-    console.log("Failed fetching from collection: ", purchaseFlowId, error)
-    // Wix data's "getDataItem" API throws exception when item with id does not exist
+  } catch {
+    console.log("Insurance entry does not exist for current checkout", purchaseFlowId)
   }
 };
 
@@ -27,7 +26,7 @@ const getSettingsDataFromCollection = async () => {
 additionalFees.provideHandlers({
   calculateAdditionalFees: async ({ request, metadata }) => {
     const [checkoutData, settingsCollection] = await Promise.all([
-      getCheckoutDataFromCollection(request.purchaseFlowId ?? ''),
+      getCheckoutDataFromCollection(request.purchaseFlowId!),
       getSettingsDataFromCollection(),
     ]);
 

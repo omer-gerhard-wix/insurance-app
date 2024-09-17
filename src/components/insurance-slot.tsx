@@ -11,7 +11,7 @@ type Props = {
   refreshCheckout?: () => void;
 };
 
-export const CarbonOffset: FC<Props> = ({
+export const InsuranceSlot: FC<Props> = ({
   settings,
   purchaseFlowId,
   checkoutId,
