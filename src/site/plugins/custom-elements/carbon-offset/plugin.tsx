@@ -47,9 +47,10 @@ const CustomElement: FC<Props> = (props) => {
     };
   }, [checkoutId]);
 
+
   return (
     <>
-      {!settings ? (
+      {!settings || !settings.enabled ? (
         <PluginSkeleton />
       ) : (
         <InsuranceSlot

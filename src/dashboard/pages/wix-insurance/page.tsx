@@ -6,28 +6,32 @@ import {
   Cell,
   Layout,
   Loader,
-  Page,
+  Page, ToggleSwitch,
   WixDesignSystemProvider,
 } from '@wix/design-system';
 import { MainButton } from '../../../components/main-button';
-import { PluginPreview } from '../../../components/plugin-preview';
 import { SettingsForm } from '../../../components/settings-form';
 import type { Settings } from '../../../types';
 import '@wix/design-system/styles.global.css';
 
 const Index: FC = () => {
   const [settings, setSettings] = useState<Settings>()
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     const fetchSettings = async () => {
       const res = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/settings`);
       const data: Settings = (await res.json());
-
+      setEnabled(data.enabled);
       setSettings(data);
     };
 
     fetchSettings();
   }, []);
+
+  const onChange = () => {
+    setEnabled(!enabled)
+  };
 
   return (
       <WixDesignSystemProvider features={{ newColorsBranding: true }}>
@@ -45,12 +49,26 @@ const Index: FC = () => {
                   title="Wix Insurance"
                   subtitle="Let your customers insure their purchase."
                   actionsBar={
-                    <MainButton {...settings} />
+                    <MainButton {...settings} enabled={enabled} />
                   }
               />
               <Page.Content>
                 <Layout>
-                  <Cell span={4}>
+                  <Cell >
+                    <Card stretchVertically>
+                      <Card.Header
+                          title="Enable insurance at checkout"
+                          subtitle="This appears on your checkout page."
+                          suffix={
+                        <ToggleSwitch
+                              skin="success"
+                              checked={enabled}
+                              onChange={onChange}
+                          />}
+                      />
+                    </Card>
+                  </Cell>
+                  <Cell >
                     <Card stretchVertically>
                       <Card.Header
                           title="Settings"
@@ -62,18 +80,6 @@ const Index: FC = () => {
                             settings={settings}
                             setSettings={setSettings}
                         />
-                      </Card.Content>
-                    </Card>
-                  </Cell>
-                  <Cell span={8}>
-                    <Card>
-                      <Card.Header
-                          title="Preview"
-                          subtitle="This is how your plugin will look like."
-                      />
-                      <Card.Divider />
-                      <Card.Content>
-                        <PluginPreview {...settings} />
                       </Card.Content>
                     </Card>
                   </Cell>
