@@ -15,10 +15,10 @@ appInstances.onAppInstanceInstalled(() => {
     ],
     permissions: {
       // Make sure to change the permissions according to the actual usage of your collection
-      insert: collections.Role.ADMIN,
-      read: collections.Role.ADMIN,
-      remove: collections.Role.ADMIN,
-      update: collections.Role.ADMIN,
+      insert: collections.Role.ANYONE,
+      read: collections.Role.ANYONE,
+      remove: collections.Role.ANYONE,
+      update: collections.Role.ANYONE,
     },
     // Plugin for single item collection
     plugins: [{
