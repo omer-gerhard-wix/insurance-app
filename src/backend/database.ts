@@ -30,7 +30,7 @@ export const safelyGetItemFromCollection = async ({
 
     return data;
   } catch (error) {
-    // Wix data's "getDataItem" API throws exception when item with id does not exist
+    console.log("error fetching data from collection: ", itemId, error)
   }
 };
 
@@ -52,15 +52,18 @@ export const upsertDataToCollection = async ({
       },
     });
   } else {
-    await auth.elevate(items.insertDataItem)({
-      dataCollectionId,
-      dataItem: {
-        _id: item._id ?? undefined,
-        data: {
+    try {
+      await auth.elevate(items.insertDataItem)({
+        dataCollectionId,
+        dataItem: {
           _id: item._id ?? undefined,
-          ...item.data
+          data: {
+            ...item.data
+          },
         },
-      },
-    });
+      });
+    } catch(error) {
+        console.log("error upserting data to collection: ", dataCollectionId, item)
+    }
   };
 };
