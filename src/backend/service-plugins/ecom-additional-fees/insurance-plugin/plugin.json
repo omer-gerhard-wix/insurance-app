@@ -1,0 +1,5 @@
+{
+  "$schema": "https://dev.wix.com/wix-cli/schemas/ecom-additional-fees.json",
+  "id": "f693146d-68c9-4c53-b0c8-b9d2e34cb5c9",
+  "name": "insurance-plugin"
+}
