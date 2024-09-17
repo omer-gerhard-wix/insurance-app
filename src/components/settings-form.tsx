@@ -48,32 +48,6 @@ export const SettingsForm: FC<Props> = ({
             })}
           />
         </FormField>
-        <FormField
-          required
-          label="Text Color"
-        >
-          <ColorInput
-            value={settings.color}
-            popoverAppendTo="viewport"
-            onConfirm={(val) => setSettings({
-              ...settings,
-              color: val.toString(),
-            })}
-          />
-        </FormField>
-        <FormField
-          required
-          label="Icon Color"
-        >
-          <ColorInput
-            value={settings.iconColor}
-            popoverAppendTo="viewport"
-            onConfirm={(val) => setSettings({
-              ...settings,
-              iconColor: val.toString(),
-            })}
-          />
-        </FormField>
       </Box>
     </Box>
   );

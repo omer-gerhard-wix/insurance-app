@@ -11,8 +11,6 @@ export async function GET(req: Request) {
   const settings: Settings = {
     title: settingsData?.title || DEFAULT_SETTING.title,
     amount: settingsData?.amount || DEFAULT_SETTING.amount,
-    color: settingsData?.color || DEFAULT_SETTING.color,
-    iconColor: settingsData?.iconColor || DEFAULT_SETTING.iconColor,
     enabled: settingsData?.enabled === undefined ? DEFAULT_SETTING.enabled : settingsData.enabled,
     eligibleItems: settingsData?.eligibleItems || DEFAULT_SETTING.eligibleItems,
   };

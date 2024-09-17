@@ -10,6 +10,7 @@
     "@wix/ecom": "^1.0.711",
     "@wix/essentials": "^0.1.5",
     "@wix/wix-ui-icons-common": "^3.0.0",
+    "antd": "^5.20.6",
     "react-to-webcomponent": "^2.0.0"
   },
   "devDependencies": {
