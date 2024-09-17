@@ -7,6 +7,6 @@ export type Settings = {
   title: string;
   color: string;
   iconColor: string;
-  enabled: true;
+  enabled: boolean;
   eligibleItems: EligibleItems;
 };
