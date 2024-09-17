@@ -1,5 +1,5 @@
 {
   "$schema": "https://dev.wix.com/wix-cli/schemas/wix-config.json",
-  "appId": "a21a2d2f-e642-4195-adcc-ccdd389ba3c0",
-  "projectId": "standalone-insurance-app"
+  "appId": "9efa9245-c908-497a-b29f-ff7a57cf5583",
+  "projectId": "wix-insurance-app"
 }
