@@ -26,13 +26,14 @@ export async function POST(req: Request) {
       dataCollectionId: SETTINGS_COLLECTION_ID,
       item: {
         // Wix data collection can be initialized as a "single item" that has the same ID
-        _id: 'SETTINGS',
+        _id: 'SINGLE_ITEM_ID',
         data: settingsData,
       },
     });
 
     return new Response('Success');
   } catch (error) {
+    console.log(error);
     return new Response('Error');
   };
 };
