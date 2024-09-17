@@ -13,6 +13,7 @@ const getCheckoutDataFromCollection = async (purchaseFlowId: string) => {
 
     return data;
   } catch (error) {
+    console.log("Failed fetching from collection: ", purchaseFlowId, error)
     // Wix data's "getDataItem" API throws exception when item with id does not exist
   }
 };
