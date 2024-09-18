@@ -9,6 +9,7 @@ appInstances.onAppInstanceInstalled(() => {
     displayName: "Insurance App Settings",
     fields: [
       { key: 'title', type: collections.Type.TEXT },
+      { key: 'description', type: collections.Type.TEXT },
       { key: 'amount', type: collections.Type.NUMBER },
       { key: 'enabled', type: collections.Type.BOOLEAN },
       { key: 'eligibleItems', type: collections.Type.TEXT },

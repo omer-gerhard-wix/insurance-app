@@ -47,6 +47,19 @@ export const SettingsForm: FC<Props> = ({
             })}
           />
         </FormField>
+          <FormField
+          required
+          label='Description'
+        >
+          <Input
+            value={settings.description}
+            placeholder='Add insurance to your site'
+            onChange={(val) => setSettings({
+              ...settings,
+              description: val.target.value
+            })}
+          />
+        </FormField>
       </Box>
     </Box>
   );

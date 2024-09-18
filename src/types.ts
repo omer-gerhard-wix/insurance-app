@@ -1,5 +1,6 @@
 export type Settings = {
   title: string;
+  description: string;
   enabled: boolean;
   calculationMethod: CalculationMethod;
   amount: number;

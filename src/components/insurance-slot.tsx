@@ -66,7 +66,7 @@ export const InsuranceSlot: FC<Props> = ({
                   fontFamily: 'Avenir',
               }}
           >
-              description for Dalia :)
+              {settings.description}
           </p>
           <p
               style={{
