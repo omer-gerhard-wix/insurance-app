@@ -49,7 +49,7 @@ const Index: FC = () => {
             <Page height='100vh'>
               <Page.Header
                   title="Wix Insurance"
-                  subtitle="Let your customers insure their purchase."
+                  subtitle="Let your customers protect your order by collecting insurance fee on checkout"
                   actionsBar={
                     <MainButton {...settings} enabled={enabled} />
                   }
@@ -60,7 +60,7 @@ const Index: FC = () => {
                     <Card stretchVertically>
                       <Card.Header
                           title="Enable insurance at checkout"
-                          subtitle="This appears on your checkout page."
+                          subtitle="The app will appear on the checkout page"
                           suffix={
                         <ToggleSwitch
                               skin="success"
