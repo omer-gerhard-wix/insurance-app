@@ -27,12 +27,7 @@ const Modal: FC = () => {
         primaryButtonOnClick={() => dashboard.closeModal()}
         secondaryButtonOnClick={() => dashboard.closeModal()}
         title="Manage Insurance"
-        subtitle="Edit this file to customize your modal"
-        content={
-          <Box direction="vertical" align="center">
-            <Text>Wix CLI Modal</Text>
-          </Box>
-        }
+        subtitle="Add insurance fee to the order?"
       />
     </WixDesignSystemProvider>
   );
