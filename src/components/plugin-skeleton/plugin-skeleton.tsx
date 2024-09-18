@@ -1,5 +1,4 @@
 import React, { type FC } from 'react';
-import styles from './plugin-skeleton.module.css';
 
 export const PluginSkeleton: FC = () => {
   return (

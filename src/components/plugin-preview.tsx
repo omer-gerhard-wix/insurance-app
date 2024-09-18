@@ -28,7 +28,6 @@ export const PluginPreview: FC<Settings> = (settings) => {
         <Box
           padding={'12px 24px'}
           boxShadow='lightgrey -2px 2px 12px 2px'
-          marginTop={8}
           backgroundColor='rgba(240, 240, 240, 0.9)'
         >
           <InsuranceSlot

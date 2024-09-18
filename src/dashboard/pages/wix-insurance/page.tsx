@@ -14,6 +14,7 @@ import { SettingsForm } from '../../../components/settings-form';
 import type { Settings } from '../../../types';
 import '@wix/design-system/styles.global.css';
 import { PluginPreview } from '../../../components/plugin-preview';
+import '../../../styles.css';
 
 const Index: FC = () => {
   const [settings, setSettings] = useState<Settings>()
