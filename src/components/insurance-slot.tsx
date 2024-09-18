@@ -52,7 +52,7 @@ export const InsuranceSlot: FC<Props> = ({
                   style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px'
+                      gap: '4px'
                   }}>
               <p
                   style={{
