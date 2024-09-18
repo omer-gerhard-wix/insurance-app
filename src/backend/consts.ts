@@ -6,8 +6,6 @@ export const CHECKOUT_COLLECTION_ID = 'insurance-app-checkout';
 export const DEFAULT_SETTING: Settings = {
   title: 'Make it carbon neutral',
   amount: 2,
-  color: '#000000',
-  iconColor: '#000000',
   enabled: true,
   eligibleItems: {
     shippable: true,

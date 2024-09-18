@@ -10,8 +10,6 @@ appInstances.onAppInstanceInstalled(() => {
     fields: [
       { key: 'title', type: collections.Type.TEXT },
       { key: 'amount', type: collections.Type.NUMBER },
-      { key: 'color', type: collections.Type.TEXT },
-      { key: 'iconColor', type: collections.Type.TEXT },
       { key: 'enabled', type: collections.Type.BOOLEAN },
       { key: 'eligibleItems', type: collections.Type.OBJECT },
     ],
