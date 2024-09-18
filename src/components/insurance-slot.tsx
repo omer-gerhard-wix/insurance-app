@@ -1,6 +1,6 @@
 import React, { type FC } from 'react';
 import { httpClient } from '@wix/essentials';
-import type { Settings } from '../types'
+import {CalculationMethod, Settings} from '../types'
 import { Switch } from "antd";
 
 type Props = {
@@ -17,6 +17,18 @@ export const InsuranceSlot: FC<Props> = ({
   checked = false,
   refreshCheckout,
 }) => {
+
+    const amountTitle = (): string => {
+        if (settings.calculationMethod === CalculationMethod.FIXED) {
+            return `$${settings.amount} insurance fee will be added`;
+        } if (settings.calculationMethod === CalculationMethod.PERCENTAGE_FROM_TOTAL) {
+            return `${settings.amount}% fee of items total will be added`;
+        } else {
+            return `${settings.amount}% fee of the shipping cost will be added`;
+        }
+    };
+
+
   return (
       <div
           style={{
@@ -74,7 +86,7 @@ export const InsuranceSlot: FC<Props> = ({
                   fontFamily: 'Avenir',
               }}
           >
-              Amount: {settings.amount}
+              {amountTitle()}
           </p>
       </div>
   );
