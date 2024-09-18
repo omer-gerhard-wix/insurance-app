@@ -17,7 +17,4 @@ export async function GET(req: Request) {
     const isShippableCheckout = response?.lineItems?.some(item => item.physicalProperties?.shippable);
     return new Response(JSON.stringify(isShippableCheckout));
   } else return new Response(JSON.stringify(enabled));
-
-
-
-};
+}

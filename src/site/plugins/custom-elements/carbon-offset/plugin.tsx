@@ -21,6 +21,8 @@ const CustomElement: FC<Props> = (props) => {
   const [settings, setSettings] = useState<Settings>();
   const [checked, setChecked] = useState<boolean>(false);
   const [purchaseFlowId, setPurchaseFlowId] = useState<string>('');
+  const [shouldShowPlugin, setShouldShowPlugin] = useState<boolean>(false);
+
 
   const checkoutId = useMemo(() => {
     return props.checkoutId && props.checkoutId.replaceAll('"', '');
@@ -37,6 +39,9 @@ const CustomElement: FC<Props> = (props) => {
       const checkoutRes = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout?purchaseFlowId=${purchaseFlowId}`);
       const checkoutData = await checkoutRes.json();
 
+      const shouldShowPluginRes = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/eligible?checkoutId=${checkoutId}`);
+      setShouldShowPlugin(shouldShowPluginRes.json());
+
       setSettings(settingsData);
       setPurchaseFlowId(purchaseFlowId ?? '');
       setChecked(checkoutData.shouldInsure ?? false);
@@ -47,10 +52,9 @@ const CustomElement: FC<Props> = (props) => {
     };
   }, [checkoutId]);
 
-
   return (
     <>
-      {!settings || !settings.enabled ? (
+      {!settings && !shouldShowPlugin  ? (
         <PluginSkeleton />
       ) : (
         <InsuranceSlot

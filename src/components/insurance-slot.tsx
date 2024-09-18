@@ -14,10 +14,10 @@ type Props = {
 export const InsuranceSlot: FC<Props> = ({
   settings,
   purchaseFlowId,
+    checkoutId,
   checked = false,
   refreshCheckout,
 }) => {
-
     const amountTitle = (): string => {
         if (settings.calculationMethod === CalculationMethod.FIXED) {
             return `$${settings.amount} insurance fee will be added`;
