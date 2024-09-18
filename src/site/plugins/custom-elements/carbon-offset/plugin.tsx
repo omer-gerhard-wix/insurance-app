@@ -54,7 +54,7 @@ const CustomElement: FC<Props> = (props) => {
 
   return (
     <>
-      {!settings && !shouldShowPlugin  ? (
+      {!settings || !shouldShowPlugin  ? (
         <PluginSkeleton />
       ) : (
         <InsuranceSlot
