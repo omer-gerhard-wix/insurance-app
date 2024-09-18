@@ -1,11 +1,11 @@
 import React, { type FC } from 'react';
 import {
-  Box,
-  FormField,
-  Input,
-  NumberInput
+    Box, Dropdown,
+    FormField,
+    Input,
+    NumberInput
 } from '@wix/design-system';
-import type { Settings } from '../types';
+import {CalculationMethod, EligibleItems, Settings} from '../types';
 import '@wix/design-system/styles.global.css';
 
 type Props = {
@@ -13,50 +13,76 @@ type Props = {
   setSettings: (settings: Settings) => void;
 };
 
+
 export const SettingsForm: FC<Props> = ({
   settings,
   setSettings,
 }) => {
-  return (
+    const amountTitle = settings.calculationMethod === CalculationMethod.FIXED ? 'Define fixed price for the insurance' : 'Define percentage of the total price for the insurance ';
+    const amountPrefix = settings.calculationMethod === CalculationMethod.FIXED ? '$' : '%';
+
+    return (
     <Box gap={3} direction="vertical">
       <Box gap={3} direction="vertical" width={'100%'}>
-        <FormField
-          required
-          label='Amount'
-        >
-          <NumberInput
-            value={settings.amount}
-            prefix={<Input.Affix value='$' />}
-            min={1}
-            onChange={(val) => setSettings({
-              ...settings,
-              amount: val ?? 1,
-            })}
-          />
-        </FormField>
-        <FormField
-          required
-          label='Content'
-        >
-          <Input
-            value={settings.title}
-            placeholder='e.g. Protect your order'
-            onChange={(val) => setSettings({
-              ...settings,
-              title: val.target.value
-            })}
-          />
-        </FormField>
           <FormField
+              required
+              label='What items should insurance be collected for?'
+          >
+              <Dropdown
+                    placeholder='Select items'
+                    options={[
+                        { id: EligibleItems.ALL, value: 'All' },
+                        { id: EligibleItems.SHIPPABLE, value: 'Only shippable items' },
+                    ]}
+                    selectedId={settings.eligibleItems}
+                    onSelect={(option) => setSettings({
+                        ...settings,
+                        eligibleItems: option.id as EligibleItems,
+                    })}
+              />
+          </FormField>
+          <FormField
+              required
+              label='Insurance calculation:'
+          >
+              <Dropdown
+                  placeholder='Insurance claculation'
+                  options={[
+                      { id: CalculationMethod.FIXED, value: 'FIXED' },
+                      { id: CalculationMethod.PERCENTAGE_FROM_TOTAL, value: 'PERCENTAGE_FROM_TOTAL' },
+                      { id: CalculationMethod.PERCENTAGE_FROM_SHIPPING_COST, value: 'PERCENTAGE_FROM_SHIPPING_COST' },
+                  ]}
+                  selectedId={settings.calculationMethod}
+                  onSelect={(option) => setSettings({
+                      ...settings,
+                      calculationMethod: option.id as CalculationMethod,
+                  })}
+              />
+          </FormField>
+          <FormField
+              required
+              label= {amountTitle}
+          >
+                <NumberInput
+                    value={settings.amount}
+                    prefix={<Input.Affix value={amountPrefix} />}
+                    min={1}
+                    onChange={(val) => setSettings({
+                        ...settings,
+                        amount: val ?? 1,
+                    })}
+                />
+          </FormField>
+        <FormField
           required
-          label='Description'
+          label='Explain to your users about the Insurance'
         >
           <Input
             value={settings.description}
-            placeholder='Add insurance to your site'
+            placeholder='description'
             onChange={(val) => setSettings({
               ...settings,
-              description: val.target.value
+              title: val.target.value
             })}
           />
         </FormField>
