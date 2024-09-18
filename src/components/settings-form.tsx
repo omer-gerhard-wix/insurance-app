@@ -30,11 +30,11 @@ export const SettingsForm: FC<Props> = ({
           >
               <Dropdown
                     placeholder='Select items'
+                    initialSelectedId={EligibleItems.ALL}
                     options={[
                         { id: EligibleItems.ALL, value: 'All' },
                         { id: EligibleItems.SHIPPABLE, value: 'Only shippable items' },
                     ]}
-                    selectedId={settings.eligibleItems}
                     onSelect={(option) => setSettings({
                         ...settings,
                         eligibleItems: option.id as EligibleItems,
@@ -47,12 +47,12 @@ export const SettingsForm: FC<Props> = ({
           >
               <Dropdown
                   placeholder='Insurance claculation'
+                  initialSelectedId={CalculationMethod.FIXED}
                   options={[
                       { id: CalculationMethod.FIXED, value: 'FIXED' },
                       { id: CalculationMethod.PERCENTAGE_FROM_TOTAL, value: 'PERCENTAGE_FROM_TOTAL' },
                       { id: CalculationMethod.PERCENTAGE_FROM_SHIPPING_COST, value: 'PERCENTAGE_FROM_SHIPPING_COST' },
                   ]}
-                  selectedId={settings.calculationMethod}
                   onSelect={(option) => setSettings({
                       ...settings,
                       calculationMethod: option.id as CalculationMethod,
