@@ -71,7 +71,7 @@ const Index: FC = () => {
                     </Card>
                   </Cell>
                   {enabled && (
-                      <><Cell span={8}>
+                      <><Cell span={7}>
                         <Card stretchVertically>
                           <Card.Header
                               title="Settings"/>
@@ -82,7 +82,7 @@ const Index: FC = () => {
                                 setSettings={setSettings}/>
                           </Card.Content>
                         </Card>
-                      </Cell><Cell span={4}>
+                      </Cell><Cell span={5}>
                         <Card stretchVertically>
                           <Card.Header
                               title="Preview"/>

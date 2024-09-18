@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { InsuranceSlot } from './insurance-slot';
 import { Box } from '@wix/design-system';
-import checkoutScreenshot from '../assets/checkoutWithSlot.png';
+import checkoutScreenshot from '../assets/c.png';
 import type { Settings } from '../types';
 import '@wix/design-system/styles.global.css';
 
@@ -26,7 +26,8 @@ export const PluginPreview: FC<Settings> = (settings) => {
         backdropFilter='blur(2px)'
       >
         <Box
-          padding={'12px 24px'}
+          padding={'16px 30px'}
+          borderRadius={'4px'}
           boxShadow='lightgrey -2px 2px 12px 2px'
           backgroundColor='rgba(240, 240, 240, 1)'
         >

@@ -1,7 +1,8 @@
 import React, { type FC } from 'react';
 import { httpClient } from '@wix/essentials';
 import {CalculationMethod, Settings} from '../types'
-import { Switch } from "antd";
+import { Switch, Tooltip } from "antd";
+import {InfoCircleOutlined} from "@ant-design/icons";
 
 type Props = {
   settings: Settings;
@@ -47,14 +48,25 @@ export const InsuranceSlot: FC<Props> = ({
                   gap: '8px'
               }}
           >
+              <div
+                  style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                  }}>
               <p
                   style={{
                       fontSize: '18px',
                       fontFamily: 'Avenir',
+                      fontWeight: 500,
                   }}
               >
                   Protect your order?
               </p>
+                  <Tooltip title={settings.description}>
+                    <InfoCircleOutlined style={{ fontSize: '16px'}} />
+                  </Tooltip>
+              </div>
               <Switch defaultChecked={checked} onChange={async (e) => {
                   if (purchaseFlowId) {
                       await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout`, {
@@ -72,14 +84,6 @@ export const InsuranceSlot: FC<Props> = ({
                   }
               }}/>
           </div>
-          <p
-              style={{
-                  fontSize: '14px',
-                  fontFamily: 'Avenir',
-              }}
-          >
-              {settings.description}
-          </p>
           <p
               style={{
                   fontSize: '14px',
