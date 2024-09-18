@@ -1,7 +1,6 @@
 import React, { type FC } from 'react';
 import {
   Box,
-  ColorInput,
   FormField,
   Input,
   NumberInput
@@ -41,7 +40,7 @@ export const SettingsForm: FC<Props> = ({
         >
           <Input
             value={settings.title}
-            placeholder='e.g. Make it carbon neutral'
+            placeholder='e.g. Protect your order'
             onChange={(val) => setSettings({
               ...settings,
               title: val.target.value

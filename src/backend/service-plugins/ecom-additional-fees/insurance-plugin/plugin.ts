@@ -35,7 +35,7 @@ additionalFees.provideHandlers({
 
       return {
         additionalFees: [{
-          name: 'Insurance Fee',
+          name: 'Insurance',
           code: 'wix-insurance-fee',
           price: `${settingsData.amount ?? DEFAULT_SETTING.amount}`,
         }],

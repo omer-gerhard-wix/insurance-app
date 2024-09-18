@@ -10,8 +10,9 @@ export async function GET(req: Request) {
   const settingsData: Settings = settingsCollection.items[0]?.data as Settings;
   const settings: Settings = {
     title: settingsData?.title || DEFAULT_SETTING.title,
-    amount: settingsData?.amount || DEFAULT_SETTING.amount,
     enabled: settingsData?.enabled === undefined ? DEFAULT_SETTING.enabled : settingsData.enabled,
+    calculationMethod: settingsData?.calculationMethod || DEFAULT_SETTING.calculationMethod,
+    amount: settingsData?.amount || DEFAULT_SETTING.amount,
     eligibleItems: settingsData?.eligibleItems || DEFAULT_SETTING.eligibleItems,
   };
 
