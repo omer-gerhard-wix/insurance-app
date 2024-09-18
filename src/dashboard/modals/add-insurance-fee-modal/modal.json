@@ -1,0 +1,7 @@
+{
+  "$schema": "https://dev.wix.com/wix-cli/schemas/dashboard-modal.json",
+  "id": "621e4ce0-037d-48bf-a9ec-9a53e7553921",
+  "title": "Manage Insurance Modal",
+  "width": 550,
+  "height": 600
+}

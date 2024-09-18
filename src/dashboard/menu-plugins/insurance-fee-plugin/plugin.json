@@ -1,0 +1,11 @@
+{
+  "$schema": "https://dev.wix.com/wix-cli/schemas/dashboard-menu-plugin.json",
+  "id": "e97a02ac-c1c8-4f79-a4e4-9cfad2e35d43",
+  "title": "Manage Insurance",
+  "extends": "057f1726-f0b3-40ef-8903-1bd104e18369",
+  "action": {
+    "openModal": {
+      "componentId": "621e4ce0-037d-48bf-a9ec-9a53e7553921"
+    }
+  }
+}
