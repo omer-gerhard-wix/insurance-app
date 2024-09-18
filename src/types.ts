@@ -5,6 +5,7 @@ export type Settings = {
   calculationMethod: CalculationMethod;
   amount: number;
   eligibleItems: EligibleItems;
+  onByDefault: boolean;
 };
 
 export enum EligibleItems {

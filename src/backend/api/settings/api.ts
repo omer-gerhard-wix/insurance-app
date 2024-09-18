@@ -15,6 +15,7 @@ export async function GET(req: Request) {
     enabled: settingsData?.enabled === undefined ? DEFAULT_SETTING.enabled : settingsData.enabled,
     calculationMethod: settingsData?.calculationMethod || DEFAULT_SETTING.calculationMethod,
     eligibleItems: settingsData?.eligibleItems || DEFAULT_SETTING.eligibleItems,
+    onByDefault: settingsData?.onByDefault === undefined ? DEFAULT_SETTING.onByDefault : settingsData.onByDefault,
   };
 
   return new Response(JSON.stringify(settings));

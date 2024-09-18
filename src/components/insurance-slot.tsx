@@ -7,16 +7,12 @@ import {InfoCircleOutlined} from "@ant-design/icons";
 type Props = {
   settings: Settings;
   purchaseFlowId?: string;
-  checkoutId?: string;
-  checked?: boolean;
   refreshCheckout?: () => void;
 };
 
 export const InsuranceSlot: FC<Props> = ({
   settings,
   purchaseFlowId,
-    checkoutId,
-  checked = false,
   refreshCheckout,
 }) => {
     const amountTitle = (): string => {
@@ -28,7 +24,6 @@ export const InsuranceSlot: FC<Props> = ({
             return `${settings.amount}% fee of the shipping cost will be added`;
         }
     };
-
 
   return (
       <div
@@ -67,7 +62,7 @@ export const InsuranceSlot: FC<Props> = ({
                     <InfoCircleOutlined style={{ fontSize: '16px'}} />
                   </Tooltip>
               </div>
-              <Switch defaultChecked={checked} onChange={async (e) => {
+              <Switch defaultChecked={settings.onByDefault} onChange={async (e) => {
                   if (purchaseFlowId) {
                       await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout`, {
                           method: 'POST',

@@ -9,4 +9,5 @@ export const DEFAULT_SETTING: Settings = {
   eligibleItems: EligibleItems.ALL,
   calculationMethod: CalculationMethod.FIXED,
   amount: 2,
+  onByDefault: true,
 };

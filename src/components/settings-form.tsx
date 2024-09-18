@@ -1,10 +1,12 @@
 import React, { type FC } from 'react';
 import {
-    Box, Cell, Dropdown,
+    Box,
+    Dropdown,
     FormField,
     Input,
-    Layout,
-    NumberInput
+    InputArea,
+    NumberInput,
+    ToggleSwitch
 } from '@wix/design-system';
 import {CalculationMethod, EligibleItems, Settings} from '../types';
 import '@wix/design-system/styles.global.css';
@@ -74,10 +76,18 @@ export const SettingsForm: FC<Props> = ({
                 />
             </FormField>
             <FormField
+                labelPlacement="left"
+                label={'Insurance on by default'}>
+                <ToggleSwitch checked={settings.onByDefault} onChange={(val) => setSettings({
+                    ...settings,
+                    onByDefault: val.target.checked,
+                })}></ToggleSwitch>
+            </FormField>
+            <FormField
                 required
                 label='Explain to your users about the Insurance'
             >
-                <Input
+                <InputArea
                     value={settings.description}
                     placeholder='description'
                     onChange={(val) => setSettings({
