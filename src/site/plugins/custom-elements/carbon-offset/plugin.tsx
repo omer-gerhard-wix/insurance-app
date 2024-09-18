@@ -40,7 +40,7 @@ const CustomElement: FC<Props> = (props) => {
       const checkoutData = await checkoutRes.json();
 
       const shouldShowPluginRes = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/eligible?checkoutId=${checkoutId}`);
-      setShouldShowPlugin(shouldShowPluginRes.json());
+      setShouldShowPlugin(await shouldShowPluginRes.json());
 
       setSettings(settingsData);
       setPurchaseFlowId(purchaseFlowId ?? '');
