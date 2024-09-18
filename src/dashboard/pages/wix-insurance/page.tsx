@@ -13,6 +13,7 @@ import { MainButton } from '../../../components/main-button';
 import { SettingsForm } from '../../../components/settings-form';
 import type { Settings } from '../../../types';
 import '@wix/design-system/styles.global.css';
+import { PluginPreview } from '../../../components/plugin-preview';
 
 const Index: FC = () => {
   const [settings, setSettings] = useState<Settings>()
@@ -68,11 +69,10 @@ const Index: FC = () => {
                       />
                     </Card>
                   </Cell>
-                  <Cell >
+                  <Cell span={6}>
                     <Card stretchVertically>
                       <Card.Header
                           title="Settings"
-                          subtitle="This appears on your checkout page."
                       />
                       <Card.Divider />
                       <Card.Content>
@@ -80,6 +80,17 @@ const Index: FC = () => {
                             settings={settings}
                             setSettings={setSettings}
                         />
+                      </Card.Content>
+                    </Card>
+                  </Cell>
+                  <Cell span={6}>
+                    <Card stretchVertically>
+                      <Card.Header
+                          title="Preview"
+                      />
+                      <Card.Divider />
+                      <Card.Content>
+                        <PluginPreview {...settings}/>
                       </Card.Content>
                     </Card>
                   </Cell>
