@@ -1,8 +1,8 @@
-import { checkout } from "@wix/ecom";
+import { draftOrders } from "@wix/ecom";
 
 export async function GET(req: Request) {
-    const checkoutId = new URL(req.url).searchParams.get('checkoutId') as string;
-    const response = await checkout.getCheckout(checkoutId);
-    const insuranceFeeExists = response.additionalFees.find(fee => fee.code === 'wix-insurance-fee') !== undefined;
+    const draftOrderId = new URL(req.url).searchParams.get('draftOrderId') as string;
+    const response = await draftOrders.getDraftOrder(draftOrderId);
+    const insuranceFeeExists = response.calculatedDraftOrder?.draftOrder?.additionalFees.find(fee => fee.additionalFee?.code === 'wix-insurance-fee') !== undefined;
     return new Response(JSON.stringify(insuranceFeeExists));
 }
