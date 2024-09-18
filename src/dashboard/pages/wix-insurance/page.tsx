@@ -70,31 +70,29 @@ const Index: FC = () => {
                       />
                     </Card>
                   </Cell>
-                  <Cell span={8}>
-                    <Card stretchVertically>
-                      <Card.Header
-                          title="Settings"
-                      />
-                      <Card.Divider />
-                      <Card.Content>
-                        <SettingsForm
-                            settings={settings}
-                            setSettings={setSettings}
-                        />
-                      </Card.Content>
-                    </Card>
-                  </Cell>
-                  <Cell span={4}>
-                    <Card stretchVertically>
-                      <Card.Header
-                          title="Preview"
-                      />
-                      <Card.Divider />
-                      <Card.Content>
-                        <PluginPreview {...settings}/>
-                      </Card.Content>
-                    </Card>
-                  </Cell>
+                  {enabled && (
+                      <><Cell span={8}>
+                        <Card stretchVertically>
+                          <Card.Header
+                              title="Settings"/>
+                          <Card.Divider/>
+                          <Card.Content>
+                            <SettingsForm
+                                settings={settings}
+                                setSettings={setSettings}/>
+                          </Card.Content>
+                        </Card>
+                      </Cell><Cell span={4}>
+                        <Card stretchVertically>
+                          <Card.Header
+                              title="Preview"/>
+                          <Card.Divider/>
+                          <Card.Content>
+                            <PluginPreview {...settings} />
+                          </Card.Content>
+                        </Card>
+                      </Cell></>
+                  )}
                 </Layout>
               </Page.Content>
             </Page>

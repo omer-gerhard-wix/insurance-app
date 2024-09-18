@@ -63,7 +63,7 @@ export const MainButton: FC<Settings> = (settings) => {
       }}
       prefixIcon={<GetStarted />}
     >
-      Update Plugin
+      Save
     </Button>
   );
 };
