@@ -34,7 +34,7 @@ export const SettingsForm: FC<Props> = ({
                         { id: EligibleItems.ALL, value: 'All' },
                         { id: EligibleItems.SHIPPABLE, value: 'Only shippable items' },
                     ]}
-                    initialSelectedId={EligibleItems.ALL}
+                    initialSelectedId={settings.eligibleItems ?? EligibleItems.ALL}
                     onSelect={(option) => setSettings({
                         ...settings,
                         eligibleItems: option.id as EligibleItems,
@@ -48,11 +48,11 @@ export const SettingsForm: FC<Props> = ({
                 <Dropdown
                     placeholder='Insurance claculation'
                     options={[
-                        { id: CalculationMethod.FIXED, value: 'FIXED' },
-                        { id: CalculationMethod.PERCENTAGE_FROM_TOTAL, value: 'PERCENTAGE_FROM_TOTAL' },
-                        { id: CalculationMethod.PERCENTAGE_FROM_SHIPPING_COST, value: 'PERCENTAGE_FROM_SHIPPING_COST' },
+                        { id: CalculationMethod.FIXED, value: 'Fixed amount' },
+                        { id: CalculationMethod.PERCENTAGE_FROM_TOTAL, value: 'Percentage of total' },
+                        { id: CalculationMethod.PERCENTAGE_FROM_SHIPPING_COST, value: 'Percentage of shipping cost' },
                     ]}
-                    initialSelectedId={CalculationMethod.FIXED}
+                    initialSelectedId={settings.calculationMethod ?? CalculationMethod.FIXED}
                     onSelect={(option) => setSettings({
                         ...settings,
                         calculationMethod: option.id as CalculationMethod,
@@ -82,7 +82,7 @@ export const SettingsForm: FC<Props> = ({
                     placeholder='description'
                     onChange={(val) => setSettings({
                         ...settings,
-                        title: val.target.value
+                        description: val.target.value
                     })}
                 />
             </FormField>
