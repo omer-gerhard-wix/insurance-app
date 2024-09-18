@@ -14,7 +14,6 @@ export async function GET(req: Request) {
     amount: settingsData?.amount || DEFAULT_SETTING.amount,
     enabled: settingsData?.enabled === undefined ? DEFAULT_SETTING.enabled : settingsData.enabled,
     calculationMethod: settingsData?.calculationMethod || DEFAULT_SETTING.calculationMethod,
-    amount: settingsData?.amount || DEFAULT_SETTING.amount,
     eligibleItems: settingsData?.eligibleItems || DEFAULT_SETTING.eligibleItems,
   };
 
