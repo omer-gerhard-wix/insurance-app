@@ -11,7 +11,8 @@ appInstances.onAppInstanceInstalled(() => {
       { key: 'title', type: collections.Type.TEXT },
       { key: 'amount', type: collections.Type.NUMBER },
       { key: 'enabled', type: collections.Type.BOOLEAN },
-      { key: 'eligibleItems', type: collections.Type.OBJECT },
+      { key: 'eligibleItems', type: collections.Type.TEXT },
+      { key: 'calculationMethod', type: collections.Type.TEXT },
     ],
     permissions: {
       // Make sure to change the permissions according to the actual usage of your collection
